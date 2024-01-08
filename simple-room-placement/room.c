@@ -37,8 +37,11 @@ Room* generateRoom(const Room* container) {
     Room* newRoom = (Room*)malloc(sizeof(Room));
 
 
-    newRoom->width = ((rand() % (container->width / 10)) + 1) * 10;
-    newRoom->height = ((rand() % (container->height / 10)) + 1) * 10;
+    int baseSize = 10;
+    int randomFactor = (rand() % 15) + 3;
+
+    newRoom->width = baseSize * randomFactor;
+    newRoom->height = baseSize * randomFactor;
 
     newRoom->x = container->x + (rand() % (container->width - newRoom->width));
     newRoom->y = container->y + (rand() % (container->height - newRoom->height));
